@@ -58,7 +58,8 @@ export default {
 
   methods: {
     fetchData() {
-      fetch("http://localhost:8080/api/personas/page", {
+      console.log(this.termino);
+      fetch("http://localhost:8080/api/personas/page?query=" + this.termino, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -67,7 +68,7 @@ export default {
           page: this.currentPage - 1,
           size: this.perPage,
           sort: 'name,asc',
-          query: this.termino
+          
         })
       })
         .then((response) => {
